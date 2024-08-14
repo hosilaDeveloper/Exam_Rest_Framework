@@ -62,3 +62,20 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.username
+
+
+class Image(models.Model):
+    image = models.ImageField(upload_to='images/')
+
+
+class TurPaket(models.Model):
+    image = models.ForeignKey(Image, on_delete=models.CASCADE)
+    city_Name = models.CharField(max_length=212)
+    u_sana = models.CharField(max_length=212)
+    q_sana = models.CharField(max_length=212)
+    hotel_name = models.CharField(max_length=212)
+    video = models.FileField(upload_to='video/')
+    price = models.CharField(max_length=221)
+
+    def __str__(self):
+        return self.city_Name

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from .models import Contact, About
+from .models import Contact, About, TurPaket, Image
 
 User = get_user_model()
 
@@ -36,4 +36,16 @@ class AboutSerializer(serializers.ModelSerializer):
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
+        fields = '__all__'
+
+
+class TurPaketSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TurPaket
+        fields = '__all__'
+
+
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Image
         fields = '__all__'

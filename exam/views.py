@@ -4,8 +4,8 @@ from django.contrib.auth import get_user_model, authenticate
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from .serializer import ContactSerializer, AboutSerializer, CustomRegisterSerializer, UserLogoutSerializer, \
-    UserLoginSerializer
-from .models import Contact, About
+    UserLoginSerializer, TurPaketSerializer, ImageSerializer
+from .models import Contact, About, TurPaket, Image
 
 User = get_user_model()
 
@@ -58,3 +58,16 @@ class AboutView(generics.ListCreateAPIView):
     queryset = About.objects.all()
     serializer_class = AboutSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+class TurPaketView(generics.ListCreateAPIView):
+    queryset = TurPaket.objects.all()
+    serializer_class = TurPaketSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class ImageView(generics.ListCreateAPIView):
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
